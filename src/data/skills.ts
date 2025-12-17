@@ -14,7 +14,7 @@ export const skills: SkillGroup[] = [
   },
   {
     title: 'Cloud & Ops',
-    items: ['AWS', 'Vercel', 'Netlify', 'Docker', 'CI/CD', 'Observabilidade'],
+    items: ['AWS', 'Docker', 'Observabilidade'],
   },
   {
     title: 'UX & Produto',

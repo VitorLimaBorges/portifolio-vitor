@@ -12,7 +12,7 @@ type SectionProps = {
   className?: string
 }
 
-export function Section({ id, kicker, title, description, children, className }: SectionProps) {
+export function Section({ id, kicker, title, description, children, className }: Readonly<SectionProps>) {
   return (
     <section id={id} className={cn('scroll-mt-24 py-16 sm:py-20', className)}>
       <div className="mx-auto flex max-w-6xl flex-col gap-10 px-4 sm:px-6">
@@ -22,8 +22,9 @@ export function Section({ id, kicker, title, description, children, className }:
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4 }}
             viewport={{ once: true }}
-            className="text-xs uppercase tracking-[0.3em] text-sky-700/80 dark:text-sky-300/70"
+            className="inline-flex w-fit items-center gap-2 text-xs uppercase tracking-[0.3em] text-sky-700/80 dark:text-sky-300/70"
           >
+            <span className="h-px w-8 bg-gradient-to-r from-sky-500/0 via-sky-500/60 to-sky-500/0" />
             {kicker || 'Portfolio'}
           </motion.span>
           <motion.div

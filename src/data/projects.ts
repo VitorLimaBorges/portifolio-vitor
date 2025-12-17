@@ -10,13 +10,13 @@ export type Project = {
 
 export const projects: Project[] = [
   {
-    title: 'InsightOps Dashboard',
+    title: 'JBFinance',
     description:
-      'Painel de observabilidade com alertas inteligentes, visão de logs em tempo real e playbooks interativos para SRE.',
-    stack: ['React', 'TypeScript', 'Tailwind', 'TanStack Query', 'D3'],
+      'Saas para gestão financeira coorporativa, com visualização de dados e insights acionáveis para melhor controle do orçamento.',
+    stack: ['React', 'TypeScript', 'Tailwind', 'Python'],
     year: '2025',
     live: '#',
     repo: '#',
-    highlight: '+32% de redução no MTTR usando detecção preditiva e UX de troubleshooting.',
+    highlight: '+35% mais previsibilidade no fluxo de caixa usando projeções inteligentes',
   }
 ]

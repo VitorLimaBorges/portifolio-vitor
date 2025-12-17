@@ -20,10 +20,12 @@ export function Skills() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.4, delay: idx * 0.05 }}
-            className="rounded-2xl border border-black/5 bg-white p-5 dark:border-white/10 dark:bg-white/5"
+            whileHover={{ scale: 1.03, y: -6 }}
+            className="group relative overflow-hidden rounded-2xl border border-black/5 bg-gradient-to-br from-white via-white to-slate-50/80 p-5 shadow-sm transition-all hover:border-sky-500/40 hover:shadow-2xl hover:shadow-sky-500/20 dark:border-white/10 dark:from-white/5 dark:via-white/5 dark:to-white/10 dark:hover:border-sky-400/50 dark:hover:shadow-sky-400/30"
           >
-            <h3 className="text-lg font-semibold text-slate-900 dark:text-white">{group.title}</h3>
-            <div className="mt-3 flex flex-wrap gap-2">
+            <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-sky-500/0 via-transparent to-blue-500/0 opacity-0 transition-opacity group-hover:opacity-10" />
+            <h3 className="relative text-lg font-semibold text-slate-900 dark:text-white">{group.title}</h3>
+            <div className="relative mt-3 flex flex-wrap gap-2">
               {group.items.map((item) => (
                 <SkillPill key={item} label={item} />
               ))}

@@ -3,7 +3,7 @@ import { Moon, Sun } from 'lucide-react'
 import { useTheme } from '../hooks/useTheme'
 import { cn } from '../lib/cn'
 
-export function ThemeToggle({ className }: { className?: string }) {
+export function ThemeToggle({ className }: Readonly<{ className?: string }>) {
   const { theme, toggleTheme } = useTheme()
   const isDark = theme === 'dark'
 
