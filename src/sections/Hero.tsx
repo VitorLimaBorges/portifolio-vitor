@@ -17,7 +17,8 @@ export function Hero() {
         }}
         className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(56,189,248,0.08),transparent_30%),radial-gradient(circle_at_80%_10%,rgba(167,139,250,0.12),transparent_28%),radial-gradient(circle_at_50%_80%,rgba(34,211,238,0.08),transparent_30%)] opacity-70 dark:opacity-75" 
         style={{ backgroundSize: '200% 200%' }}
-      />
+        aria-hidden="true"
+        />
       <div className="mx-auto flex max-w-6xl flex-col gap-10 px-4 pb-16 pt-24 sm:px-6 sm:pt-28">
         <div className="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
           <motion.div
@@ -31,21 +32,22 @@ export function Hero() {
               transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
               className="inline-flex w-fit items-center gap-2 rounded-full border border-black/10 bg-white/70 px-4 py-2 text-xs uppercase tracking-[0.25em] text-sky-700 shadow-lg shadow-sky-500/10 dark:border-white/15 dark:bg-white/10 dark:text-sky-50 dark:shadow-sky-500/20"
             >
-              VITOR BORGES · FRONTEND
+              VITOR BORGES · FULLSTACK
             </motion.span>
             <h1 className="text-balance text-4xl font-semibold leading-tight text-slate-900 dark:text-white sm:text-5xl md:text-6xl">
-              Crio experiências digitais elegantes, performáticas e prontas para escalar produtos.
+              Fullstack que entrega produto: front impecável, APIs sólidas e arquitetura pronta para crescer.
             </h1>
             <p className="max-w-3xl text-lg text-slate-700 dark:text-slate-200">
-              Especialista em React e TypeScript, foco em design systems, acessibilidade e conversão. Lidero entregas com
-              animações que contam histórias, UX orientada a métricas e código fácil de evoluir.
+              React + TypeScript no front, Node/Python no back. Construo design systems, APIs bem versionadas, automações e
+              observabilidade para que o produto seja rápido de usar e fácil de operar.
             </p>
             <div className="flex flex-wrap items-center gap-3">
                   <motion.a
                     whileHover={{ scale: 1.05, y: -2 }}
                     whileTap={{ scale: 0.98 }}
                     href="#projects"
-                    className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-sky-600 to-blue-600 px-6 py-3 font-semibold text-white shadow-[0_10px_40px_-10px_rgba(56,189,248,0.7)] transition-all hover:shadow-[0_15px_50px_-10px_rgba(56,189,248,0.9)] dark:from-sky-500 dark:to-blue-500"
+                      aria-label="Ver seção de projetos"
+                      className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-sky-600 to-blue-600 px-6 py-3 font-semibold text-white shadow-[0_10px_40px_-10px_rgba(56,189,248,0.7)] transition-all hover:shadow-[0_15px_50px_-10px_rgba(56,189,248,0.9)] dark:from-sky-500 dark:to-blue-500"
                   >
                     Ver projetos <ArrowDownRight size={16} />
                   </motion.a>
@@ -53,7 +55,8 @@ export function Hero() {
                     whileHover={{ scale: 1.05, y: -2 }}
                     whileTap={{ scale: 0.98 }}
                     href="#contact"
-                    className="inline-flex items-center gap-2 rounded-full border-2 border-sky-600/30 bg-sky-600/10 px-6 py-3 font-semibold text-slate-900 backdrop-blur-sm transition-all hover:border-sky-600/50 hover:bg-sky-600/20 dark:border-sky-400/30 dark:bg-sky-400/10 dark:text-white dark:hover:border-sky-400/50 dark:hover:bg-sky-400/20"
+                      aria-label="Ir para formulário de contato"
+                      className="inline-flex items-center gap-2 rounded-full border-2 border-sky-600/30 bg-sky-600/10 px-6 py-3 font-semibold text-slate-900 backdrop-blur-sm transition-all hover:border-sky-600/50 hover:bg-sky-600/20 dark:border-sky-400/30 dark:bg-sky-400/10 dark:text-white dark:hover:border-sky-400/50 dark:hover:bg-sky-400/20"
                   >
                     Vamos conversar <Mail size={16} />
                   </motion.a>
@@ -62,17 +65,21 @@ export function Hero() {
                     whileTap={{ scale: 0.98 }}
                     href="/Curriculo.pdf"
                     download
-                    className="inline-flex items-center gap-2 rounded-full border border-black/15 bg-white/50 px-6 py-3 font-semibold text-slate-900 backdrop-blur-sm transition-all hover:border-black/30 hover:bg-white/80 dark:border-white/25 dark:bg-white/10 dark:text-white dark:hover:border-white/50 dark:hover:bg-white/20"
+                      aria-label="Baixar currículo em PDF"
+                      className="inline-flex items-center gap-2 rounded-full border border-black/15 bg-white/50 px-6 py-3 font-semibold text-slate-900 backdrop-blur-sm transition-all hover:border-black/30 hover:bg-white/80 dark:border-white/25 dark:bg-white/10 dark:text-white dark:hover:border-white/50 dark:hover:bg-white/20"
                   >
                     Download CV <Download size={16} />
                   </motion.a>
             </div>
-            <div className="flex flex-wrap gap-2 text-sm text-slate-700 dark:text-slate-200">
+              <nav aria-label="Links de redes sociais" className="flex flex-wrap gap-2 text-sm text-slate-700 dark:text-slate-200">
               {socials.map((social) => (
                 <a
                   key={social.label}
                   href={social.href}
-                  className="inline-flex items-center gap-2 rounded-full border border-black/10 px-3 py-1 transition hover:border-black/30 hover:bg-black/5 dark:border-white/10 dark:hover:border-white/40 dark:hover:bg-white/5"
+                    aria-label={`Visitar ${social.label}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 rounded-full border border-black/10 px-3 py-1 transition hover:border-black/30 hover:bg-black/5 dark:border-white/10 dark:hover:border-white/40 dark:hover:bg-white/5"
                 >
                   {social.label === 'GitHub' ? <Github size={14} /> : null}
                   {social.label === 'LinkedIn' ? <LinkedinIcon size={14} /> : null}
@@ -80,7 +87,7 @@ export function Hero() {
                   {social.label}
                 </a>
               ))}
-            </div>
+              </nav>
           </motion.div>
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
@@ -98,15 +105,15 @@ export function Hero() {
               />
               <p className="text-sm uppercase tracking-[0.2em] text-slate-600 dark:text-slate-200">Disponível</p>
             </div>
-            <h3 className="pt-2 text-2xl font-semibold">Engenheiro Frontend</h3>
+            <h3 className="pt-2 text-2xl font-semibold">Desenvolvedor Fullstack</h3>
             <p className="pt-3 text-slate-700 dark:text-slate-200">
-              Combino visão de produto com código enxuto. Adoro explorar animações sutis, onboarding guiado e métricas para
+              Combino visão de produto com código enxuto: UI polida, APIs REST/GraphQL seguras, automações e métricas para
               iterar rápido.
             </p>
             <div className="mt-6 grid grid-cols-2 gap-3 text-sm text-slate-800 dark:text-slate-100">
               <CardStat label="Tempo médio de entrega" value="< 4 semanas" />
-              <CardStat label="Lighthouse" value="100 / 100" />
-              <CardStat label="Stack principal" value="React + TS" />
+              <CardStat label="APIs" value="REST / GraphQL" />
+              <CardStat label="Stack principal" value="React · Node · Python" />
               <CardStat label="Fuso" value="GMT-3" />
             </div>
           </motion.div>

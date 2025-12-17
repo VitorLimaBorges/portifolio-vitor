@@ -22,27 +22,83 @@ function App() {
   return (
     <div className="relative min-h-screen bg-slate-50 text-slate-900 antialiased transition-colors duration-300 dark:bg-slate-950 dark:text-slate-100">
       <Helmet>
-        <title>Vitor Borges · Frontend Engineer</title>
+        {/* Primary Meta Tags */}
+        <title>Vitor Borges · Desenvolvedor Fullstack | React, Node & Python</title>
         <meta
           name="description"
-          content="Portfólio moderno em React + TypeScript. Design systems, animações e performance para produtos digitais."
+          content="Desenvolvedor Fullstack especializado em React, TypeScript, Node.js e Python. Entrego UIs polidas, APIs bem estruturadas e observabilidade para produtos rápidos e escaláveis."
         />
         <meta name="theme-color" content="#0f172a" />
         <link rel="canonical" href="https://portfolio.exemplo.com" />
+        
+              {/* Open Graph / Facebook */}
+              <meta property="og:type" content="website" />
+              <meta property="og:url" content="https://portfolio.exemplo.com" />
+              <meta property="og:title" content="Vitor Borges · Desenvolvedor Fullstack | React, Node & Python" />
+              <meta
+                property="og:description"
+                content="Portfólio profissional de Vitor Borges. Especialista em experiências web modernas, APIs em Node/Python e arquitetura escalável."
+              />
+              <meta property="og:image" content="https://portfolio.exemplo.com/og-image.jpg" />
+              <meta property="og:locale" content="pt_BR" />
+        
+              {/* Twitter */}
+              <meta name="twitter:card" content="summary_large_image" />
+              <meta name="twitter:url" content="https://portfolio.exemplo.com" />
+              <meta name="twitter:title" content="Vitor Borges · Desenvolvedor Fullstack" />
+              <meta
+                name="twitter:description"
+                content="Desenvolvedor Fullstack especializado em React, TypeScript, Node e Python. Crio experiências digitais performáticas e escaláveis, do front à API."
+              />
+              <meta name="twitter:image" content="https://portfolio.exemplo.com/og-image.jpg" />
+        
+              {/* Additional SEO */}
+              <meta name="format-detection" content="telephone=no" />
+              <link rel="alternate" hrefLang="pt-BR" href="https://portfolio.exemplo.com" />
+        
+              {/* JSON-LD Structured Data */}
+              <script type="application/ld+json">
+                {JSON.stringify({
+                  '@context': 'https://schema.org',
+                  '@type': 'Person',
+                  name: 'Vitor Borges',
+                  url: 'https://portfolio.exemplo.com',
+                  jobTitle: 'Desenvolvedor Fullstack',
+                  description: 'Fullstack especializado em React, TypeScript, Node e Python, criando UIs e APIs escaláveis',
+                  knowsAbout: ['React', 'TypeScript', 'Next.js', 'JavaScript', 'Tailwind CSS', 'Node.js', 'Python', 'APIs'],
+                  sameAs: [
+                    'https://github.com/VitorLimaBorges',
+                    'https://linkedin.com/in/seu-perfil',
+                  ],
+                })}
+              </script>
       </Helmet>
 
       {/* Progress Bar */}
       <motion.div
         className="fixed left-0 right-0 top-0 z-50 h-1 origin-left bg-gradient-to-r from-sky-500 via-blue-500 to-purple-500"
         style={{ scaleX }}
+        role="progressbar"
+        aria-label="Progresso de rolagem da página"
+        aria-valuenow={Math.round(scrollYProgress.get() * 100)}
+        aria-valuemin={0}
+        aria-valuemax={100}
       />
+
+      {/* Skip to main content - Accessibility */}
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-lg focus:bg-sky-600 focus:px-4 focus:py-2 focus:font-semibold focus:text-white focus:shadow-lg focus:outline-none focus:ring-2 focus:ring-sky-400"
+      >
+        Pular para o conteúdo principal
+      </a>
 
       <div className="pointer-events-none fixed inset-0 bg-[radial-gradient(circle_at_15%_20%,rgba(59,130,246,0.12),transparent_35%),radial-gradient(circle_at_80%_0%,rgba(244,63,94,0.08),transparent_32%),radial-gradient(circle_at_80%_80%,rgba(56,189,248,0.12),transparent_32%)]" />
 
       <div className="relative">
         <Header />
         <ScrollToTop />
-        <main>
+        <main id="main-content" role="main">
           <Hero />
           <About />
           <Skills />

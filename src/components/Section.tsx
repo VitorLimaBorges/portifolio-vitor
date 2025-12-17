@@ -14,7 +14,7 @@ type SectionProps = {
 
 export function Section({ id, kicker, title, description, children, className }: Readonly<SectionProps>) {
   return (
-    <section id={id} className={cn('scroll-mt-24 py-16 sm:py-20', className)}>
+      <section id={id} className={cn('scroll-mt-24 py-16 sm:py-20', className)} aria-labelledby={`${id}-heading`}>
       <div className="mx-auto flex max-w-6xl flex-col gap-10 px-4 sm:px-6">
         <div className="flex flex-col gap-3">
           <motion.span
@@ -34,7 +34,7 @@ export function Section({ id, kicker, title, description, children, className }:
             viewport={{ once: true }}
             className="flex flex-col gap-4"
           >
-            <h2 className="text-balance text-3xl font-semibold tracking-tight text-slate-900 dark:text-white sm:text-4xl">
+              <h2 id={`${id}-heading`} className="text-balance text-3xl font-semibold tracking-tight text-slate-900 dark:text-white sm:text-4xl">
               {title}
             </h2>
             {description ? (
