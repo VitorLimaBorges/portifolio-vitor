@@ -6,7 +6,7 @@ import { socials } from '../data/socials'
 export function Hero() {
   return (
     <section id="hero" className="relative overflow-hidden">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(56,189,248,0.08),transparent_30%),radial-gradient(circle_at_80%_10%,rgba(167,139,250,0.12),transparent_28%),radial-gradient(circle_at_50%_80%,rgba(34,211,238,0.08),transparent_30%)] opacity-70 dark:opacity-75" />
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(56,189,248,0.08),transparent_30%),radial-gradient(circle_at_80%_10%,rgba(167,139,250,0.12),transparent_28%),radial-gradient(circle_at_50%_80%,rgba(34,211,238,0.08),transparent_30%)] opacity-70 dark:opacity-75" />
       <div className="mx-auto flex max-w-6xl flex-col gap-10 px-4 pb-16 pt-24 sm:px-6 sm:pt-28">
         <div className="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
           <motion.div
@@ -26,24 +26,31 @@ export function Hero() {
               animações que contam histórias, UX orientada a métricas e código fácil de evoluir.
             </p>
             <div className="flex flex-wrap items-center gap-3">
-              <a
-                href="#projects"
-                className="inline-flex items-center gap-2 rounded-full bg-white px-5 py-3 text-slate-950 font-semibold shadow-[0_10px_40px_-18px_rgba(255,255,255,0.8)] transition hover:translate-y-[1px]"
-              >
-                Ver projetos <ArrowDownRight size={16} />
-              </a>
-              <a
-                href="#contact"
-                className="inline-flex items-center gap-2 rounded-full border border-black/15 px-5 py-3 text-slate-900 transition hover:border-black/30 hover:bg-black/5 dark:border-white/25 dark:text-white dark:hover:border-white/50 dark:hover:bg-white/10"
-              >
-                Vamos conversar <Mail size={16} />
-              </a>
-              <a
-                href="#"
-                className="inline-flex items-center gap-2 rounded-full border border-black/15 px-5 py-3 text-slate-900 transition hover:border-black/30 hover:bg-black/5 dark:border-white/25 dark:text-white dark:hover:border-white/50 dark:hover:bg-white/10"
-              >
-                Download CV <Download size={16} />
-              </a>
+                  <motion.a
+                    whileHover={{ scale: 1.02, y: 1 }}
+                    whileTap={{ scale: 0.99, y: 0 }}
+                    href="#projects"
+                    className="inline-flex items-center gap-2 rounded-full bg-white px-5 py-3 text-slate-950 font-semibold shadow-[0_10px_40px_-18px_rgba(255,255,255,0.8)] transition"
+                  >
+                    Ver projetos <ArrowDownRight size={16} />
+                  </motion.a>
+                  <motion.a
+                    whileHover={{ scale: 1.02, y: 1 }}
+                    whileTap={{ scale: 0.99, y: 0 }}
+                    href="#contact"
+                    className="inline-flex items-center gap-2 rounded-full border border-black/15 px-5 py-3 text-slate-900 transition hover:border-black/30 hover:bg-black/5 dark:border-white/25 dark:text-white dark:hover:border-white/50 dark:hover:bg-white/10"
+                  >
+                    Vamos conversar <Mail size={16} />
+                  </motion.a>
+                  <motion.a
+                    whileHover={{ scale: 1.02, y: 1 }}
+                    whileTap={{ scale: 0.99, y: 0 }}
+                    href="/Curriculo.pdf"
+                    download
+                    className="inline-flex items-center gap-2 rounded-full border border-black/15 px-5 py-3 text-slate-900 transition hover:border-black/30 hover:bg-black/5 dark:border-white/25 dark:text-white dark:hover:border-white/50 dark:hover:bg-white/10"
+                  >
+                    Download CV <Download size={16} />
+                  </motion.a>
             </div>
             <div className="flex flex-wrap gap-2 text-sm text-slate-700 dark:text-slate-200">
               {socials.map((social) => (
@@ -74,7 +81,7 @@ export function Hero() {
               iterar rápido.
             </p>
             <div className="mt-6 grid grid-cols-2 gap-3 text-sm text-slate-800 dark:text-slate-100">
-              <CardStat label="Tempo médio de entrega" value="< 2 semanas" />
+              <CardStat label="Tempo médio de entrega" value="< 4 semanas" />
               <CardStat label="Lighthouse" value="100 / 100" />
               <CardStat label="Stack principal" value="React + TS" />
               <CardStat label="Fuso" value="GMT-3" />
@@ -88,9 +95,16 @@ export function Hero() {
 
 function CardStat({ label, value }: { label: string; value: string }) {
   return (
-    <div className="rounded-2xl border border-black/10 bg-black/5 px-4 py-3 dark:border-white/12 dark:bg-slate-900/70">
+    <motion.div
+      initial={{ opacity: 0, y: 10 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.35 }}
+      whileHover={{ scale: 1.01 }}
+      className="rounded-2xl border border-black/10 bg-black/5 px-4 py-3 dark:border-white/12 dark:bg-slate-900/70"
+    >
       <p className="text-xs text-slate-600 dark:text-slate-200">{label}</p>
       <p className="text-sm font-semibold text-slate-900 dark:text-white">{value}</p>
-    </div>
+    </motion.div>
   )
 }
