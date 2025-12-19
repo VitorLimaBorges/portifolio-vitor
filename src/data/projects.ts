@@ -18,5 +18,15 @@ export const projects: Project[] = [
     live: '#',
     repo: '#',
     highlight: '+35% mais previsibilidade no fluxo de caixa usando projeções inteligentes',
+  },
+  {
+    title: 'E-commerce',
+    description:
+      'Loja virtual headless com Next.js, checkout otimizado e catálogo dinâmico com buscas rápidas e filtros inteligentes.',
+    stack: ['Next.js', 'TypeScript', 'Tailwind', 'Stripe'],
+    year: '2025',
+    live: '#',
+    repo: 'https://github.com/VitorLimaBorges/e-commerce',
+    highlight: '+22% na taxa de conversão com checkout simplificado e recomendações personalizadas',
   }
 ]
