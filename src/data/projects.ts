@@ -25,7 +25,7 @@ export const projects: Project[] = [
       'Loja virtual headless com Next.js, checkout otimizado e catálogo dinâmico com buscas rápidas e filtros inteligentes.',
     stack: ['Next.js', 'TypeScript', 'Tailwind', 'Stripe'],
     year: '2025',
-    live: '#',
+    live: 'https://e-commerce-vitor.vercel.app/',
     repo: 'https://github.com/VitorLimaBorges/e-commerce',
     highlight: '+22% na taxa de conversão com checkout simplificado e recomendações personalizadas',
   }
